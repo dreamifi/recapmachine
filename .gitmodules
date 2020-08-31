@@ -1,0 +1,3 @@
+[submodule "engine/botcode/robotocr"]
+	path = engine/botcode/robotocr
+	url = https://github.com/dreamifi/robotocr
