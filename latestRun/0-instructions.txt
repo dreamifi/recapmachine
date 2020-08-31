@@ -1,0 +1,6 @@
+
+This folder will be emptied at the start every time you run the robot, and then as it runs it will log all kinds of stuff in here. You can use this to troubleshoot if things don't go the way you want, or just to evaluate your progress.
+
+If you don't want your robot to spend resources on saving logs and screenshots and such here, you can simply delete this folder and the bot will skip those steps.
+
+General structure of the output is that every log file, weither it is text or image, starts with a number to make sure all the logs appear in chronological order as you view the folder.

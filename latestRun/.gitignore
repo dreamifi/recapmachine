@@ -1,0 +1,5 @@
+
+# Hide all things except .gotignore and 0-instructions.txt
+*
+!.gitignore
+!0-instructions.txt

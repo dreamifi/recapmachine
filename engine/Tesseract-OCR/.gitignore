@@ -1,0 +1,4 @@
+
+# Hide entire Tesseract installation without hiding the folder
+*
+!.gitignore

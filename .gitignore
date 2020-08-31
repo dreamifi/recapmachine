@@ -1,0 +1,12 @@
+
+# Everything at root
+/*
+# except these things
+!.gitignore
+!run.bat
+!/engine/
+!/settings/
+!/latestRun/
+
+# Python cache folders
+**/__pycache__/

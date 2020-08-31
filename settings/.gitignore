@@ -1,0 +1,4 @@
+
+# Hide all settings without hiding the folder
+*
+!.gitignore
