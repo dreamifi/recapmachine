@@ -3,6 +3,7 @@
 /*
 # except these things
 !.gitignore
+!.gitmodules
 !run.bat
 !/engine/
 !/settings/
