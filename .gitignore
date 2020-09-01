@@ -6,6 +6,7 @@
 !.gitmodules
 !setup-instructions-windows.txt
 !run.bat
+!buildUserVersion.bat
 !/engine/
 !/settings/
 !/latestRun/
