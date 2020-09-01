@@ -1,0 +1,57 @@
+  
+DISCLAIMER  
+This instruction assumes that none of our dependancies are installed on your computer already. If you are an experienced developer, this might not be true and you may have to skip steps or do them slightly differently because you've set up your dev environment differently than I have. If you already have git and indeed got this instruction file through it, for example, you can safely skip the installing git step.    
+  
+INSTALLING GIT  
+Run the git installer. Don't install git in the Bot folder, choose somewhere else. In the "Select Components" step, you can uncheck all boxes except "Git LFS" and "Associate .git* configuration files with the default text editor". In the "Choosing the default editor used by Git" step, choose whatever editor you will code in, I use Notepad++. In the "Adjusting your PATH environment" step, choose the "Git from the command line and also from 3rd party software" option. This will let us run git commands in cmd, and by extension in bat files. In the "Configuring the line ending conversions" step, choose "Checkout Windows-style, commit Unix-style line endings". The "Configuring the terminal emulator to use with Git Bash" step is silly since we are not gonna use Git Bash, but I picked windows default. In the "Choosing HTTPS transport backed" step, I don't know if it matters but I picked "Use the OpenSSL library". In the "Choose the default behavior of git pull" step, choose Default. In the "Choose a credential helper" step, choose "Git Credential Manager Core". In the "Configuring extra options" step, enable file system caching and disable symbolic links. Don't enable any experimental options.  
+  
+CLONING THE REPOSITORY  
+Decide where you want your bot code to be stored. It can be anywhere, but should be somewhere where it is easy for you to find it. Navigate to your chosen spot with windows explorer. You don't need to create a folder, what we are about to do will create one for you, so navigate to the place you want the folder to be created in. In the path part of windows explorer, delete everything, write "cmd" and press enter. This will open a cmd terminal already natigated to where the windows explorer is.  
+  
+Run this command in the terminal:  
+git clone https://github.com/dreamifi/recapmachine  
+  
+This will create a folder called "recapmachine" and populate it with the latest version of the bot code. This folder will be referred to as your bot folder for the rest of this guide. It will also set up a local copy of the git repository that you can use to track any changes you do, and to push contributions.  
+  
+Navigate into your bot folder in the terminal with this command:  
+cd recapmachine  
+  
+We now need to also load the "robotocr" submodule. This contains a general framework for working with optical character recognition in a robot context. In other words it contains code that will be used by this robot but also by other robots. I have chosen to set it up as a submodule because I want it to be conveniant to use and contribute to at at the same time as you use it in a robot you are developing, I don't want it's development to be tied to a specific robot.  
+  
+When in the bot folder, run this command:  
+git submodule init  
+  
+and then this command:  
+git submodule update  
+  
+At this point all of the relevant code will have been downloaded. You can close the terminal.  
+  
+INSTALLING TESSERACT  
+Run the tesseract installer. We want Tesseract at the path "engine/Tesseract-OCR" inside your bot folder. Make the installation as minimal as possible, unckeck all the optional boxes, you only need the English language package and the Tesseract engine itself.  
+  
+INSTALLING PYTHON  
+Run the python installer. Install python somewhere other than the bot folder. Personally I go with whatever it picks by default, but what matters is that it is not the Bot folder.  
+  
+SET PYTHON AS DEFAULT PROGRAM TO RUN .py FILES
+Open the "engine/botcode" in your bot folder. Right click the run.py file. Select "Open with" and "Choose another app". Choose Python and check the box to always open py files with Python. When the file is run it will immediately crash and not even give you a message. Don't worry about that, setting Python as the default program was the point, for now.  
+  
+ADD pip TO WINDOWS PATH VARIABLE
+Find the folder where you installed Python. If you don't know where it is, press the Windows button and type Python in the search field that comes up. Right click the python program in the search results and choose "Open file location". This opens a startmenu folder with shortcuts. Right click the shortcut to the python program, and choose properties. In the Target field you find the full path to where the Python program ended up. Copy that path, but without the python.exe at the end. Press OK to close the properties window. Paste the path in the path field of the windows explorer window, this will take you to the Python folder.  
+  
+We now want to add the Scripts folder in the Python folder to Windows Path variable. The point of this is to be able to run a program called pip (this is Pythons standard package manager) from the command line regardless of where you are in the file system. Open the Control Panel > System and Security > System. Click "Advanced system settings". Click the "Environment Variables" button in the Advanced tab. I the System Variables bit, select the "Path" line and click the "Edit..." button. Click "New" and paste in the full path to the Scripts folder. Press "OK" and "OK" and "OK".
+  
+INSTALLING PREREQUISITE THIRD PARTY PACKAGES
+Time to install the prerequisite python packages using pip. Open the cmd terminal. Run the following commands one by one:  
+pip install numpy
+pip install scikit-image
+pip install pyautogui
+pip install pydirectinput
+pip install pytesseract
+pip install pyinstaller
+  
+OTHER PREREQUISITES  
+To run the bot you also need Blood Bowl 2 installed and you need to either have Steam remember your password or be already logged into Steam. You also need Blood Bowl 2 to remember your account password, though I believe that is the games default behaviour. Don't start Blood Bowl 2 before running the bot, the bot will start and close the game by itself.  
+  
+RUN THE BOT FROM CODE
+To run the bot using your most current version of the code, simply double click the "run.bat" file at the top level in your bot folder.  
+  
