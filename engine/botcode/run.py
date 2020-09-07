@@ -9,7 +9,7 @@ import sys
 if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
     # running in a PyInstaller bundle (User Version)
 	robotocr.init(\
-	tesseractPath= path.join('engine', 'Tesseract-OCR', 'tesseract'), \
+	tesseractPath= path.join('Tesseract-OCR', 'tesseract'), \
 	logFolderPath= 'latestRun')
 else:
     #running in a normal Python process (Dev Version)
