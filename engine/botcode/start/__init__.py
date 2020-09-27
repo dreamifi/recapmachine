@@ -17,7 +17,8 @@ def bloodbowl():
 	pyautogui.press('enter')
 	
 	robotocr.clickSentence('LIBRARY', \
-	processing=(RgbToGray(), Floor(0.4), AutoLevel()))
+	processing=(RgbToGray(), Floor(0.4), AutoLevel())) 
+	#Seems to miss after I switched to own wrapper
 	
 	pyautogui.hotkey('alt', 'space', interval=0.1)
 	pyautogui.press('x')
@@ -26,7 +27,7 @@ def bloodbowl():
 	
 	robotocr.waitSentence('SEARCH RESULTS', \
 	cut=(top, left, left),\
-	processing=(RgbToGray(), Floor(0.4), AutoLevel(), Thin()))
+	processing=(RgbToGray(), Floor(0.3), LocalMaxFloor(), AutoLevel(), Rescale(2)))
 	
 	robotocr.doubleClickSentence('Blood Bowl 2', \
 	cut=(topHalf, left, left),\
