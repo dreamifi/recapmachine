@@ -17,7 +17,7 @@ def bloodbowl():
 	pyautogui.press('enter')
 	
 	robotocr.clickSentence('LIBRARY', \
-	processing=(RgbToGray(), Floor(0.4), AutoLevel())) 
+	processing=(RgbToGray(), Floor(0.4), Erosion(2), Dilation(2), AutoLevel())) 
 	
 	pyautogui.hotkey('alt', 'space', interval=0.1)
 	pyautogui.press('x')
