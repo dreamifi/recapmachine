@@ -26,8 +26,23 @@ git submodule update
   
 At this point all of the relevant code will have been downloaded. You can close the terminal.  
   
-INSTALLING TESSERACT  
-Run the tesseract installer. We want Tesseract at the path "engine/Tesseract-OCR" inside your bot folder. Make the installation as minimal as possible, unckeck all the optional boxes, you only need the English language package and the Tesseract engine itself.  
+INSTALLING TESSERACT 
+To minimize the filesize of the excecutable the end user will get I recommend using an old version of Tesseract, namely 3.02. The installer is found behind the SourceForge link under the headline "Old Downloads" at:  
+https://github.com/tesseract-ocr/tessdoc/blob/master/Downloads.md
+  
+Get the one called "tesseract-ocr-setup-3.02.02.exe". Run the tesseract installer. We want Tesseract at the path "engine/Tesseract-OCR" inside your bot folder. Make the installation as minimal as possible, unckeck all the optional boxes, you only need the English language package and the Tesseract engine itself.  
+  
+A possible alternative is going for a similar sixed 4.0 distribusion liked with the link called "zip file with cppan generated .dll and .exe files" at:
+https://tesseract-ocr.github.io/tessdoc/4.0-with-LSTM.html#400-alpha-for-windows
+  
+The appeal of this one is that it is just as filesize optimized as the 3.02 version, but newer. There are some problems with this that I have not yet solved though. There is a dependancy to a C++ redistributable that I'm not sure how I can package with the end user executable. You also need to add the language pack separately, which shouldn't be too hard but I havn't figured it out yet. Other than that it's pretty simple, it's just a zip file that you can extract directly in "engine/Tesseract-OCR", and then move the contents out of the folder that creates so it is directly in the folder we want it.  
+  
+A third alternative is the newest available version found at:  
+https://github.com/UB-Mannheim/tesseract/wiki  
+  
+These come in nice self contained installers that are used exactly the same way as the 3.02 one. They do however have the problem of an absolutely huge filesize contribution to our final execuatable, which is why it is not my preferred option. Compared to 3.02 it is a little faster though not neccessarily more accurate, the newer and older versions seem to have slightly different strengths and weaknesses, meaning you'll want to optimize the image preprocessing differently depending on Tesseract version.  
+  
+Since recapmachine has it's prepocessing optimized for Tesseract 3.02, I really do recommend going with that option.  
   
 INSTALLING PYTHON  
 Run the python installer. Install python somewhere other than the bot folder. Personally I go with whatever it picks by default, but what matters is that it is not the Bot folder.  
@@ -46,7 +61,6 @@ pip install numpy
 pip install scikit-image
 pip install pyautogui
 pip install pydirectinput
-pip install pytesseract
 pip install pyinstaller
   
 OTHER PREREQUISITES  
