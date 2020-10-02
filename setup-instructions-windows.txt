@@ -44,6 +44,9 @@ These come in nice self contained installers that are used exactly the same way 
   
 Since recapmachine has it's prepocessing optimized for Tesseract 3.02, I really do recommend going with that option.  
   
+If you do end up using another version than 3.02 you will probably need to add the following parameter to the pyinstaller call in buildUserVersion.bat:
+--add-binary="../engine/Tesseract-OCR/*.dll;Tesseract-OCR"  
+  
 INSTALLING PYTHON  
 Run the python installer. Install python somewhere other than the bot folder. Personally I go with whatever it picks by default, but what matters is that it is not the Bot folder.  
   
