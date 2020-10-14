@@ -40,7 +40,7 @@ The appeal of this one is that it is just as filesize optimized as the 3.02 vers
 A third alternative is the newest available version found at:  
 https://github.com/UB-Mannheim/tesseract/wiki  
   
-These come in nice self contained installers that are used exactly the same way as the 3.02 one. They do however have the problem of an absolutely huge filesize contribution to our final execuatable, which is why it is not my preferred option. Compared to 3.02 it is a little faster though not neccessarily more accurate, the newer and older versions seem to have slightly different strengths and weaknesses, meaning you'll want to optimize the image preprocessing differently depending on Tesseract version.  
+These come in nice self contained installers that are used almost exactly the same way as the 3.02 one. They do however have the problem of an absolutely huge filesize contribution to our final execuatable, which is why it is not my preferred option. Compared to 3.02 it is a little faster though not neccessarily more accurate, the newer and older versions seem to have slightly different strengths and weaknesses, meaning you'll want to optimize the image preprocessing differently depending on Tesseract version.  
   
 Since recapmachine has it's prepocessing optimized for Tesseract 3.02, I really do recommend going with that option.  
   
@@ -56,9 +56,25 @@ Open the "engine/botcode" in your bot folder. Right click the run.py file. Selec
 ADD pip TO WINDOWS PATH VARIABLE
 Find the folder where you installed Python. If you don't know where it is, press the Windows button and type Python in the search field that comes up. Right click the python program in the search results and choose "Open file location". This opens a startmenu folder with shortcuts. Right click the shortcut to the python program, and choose properties. In the Target field you find the full path to where the Python program ended up. Copy that path, but without the python.exe at the end. Press OK to close the properties window. Paste the path in the path field of the windows explorer window, this will take you to the Python folder.  
   
-We now want to add the Scripts folder in the Python folder to Windows Path variable. The point of this is to be able to run a program called pip (this is Pythons standard package manager) from the command line regardless of where you are in the file system. Open the Control Panel > System and Security > System. Click "Advanced system settings". Click the "Environment Variables" button in the Advanced tab. I the System Variables bit, select the "Path" line and click the "Edit..." button. Click "New" and paste in the full path to the Scripts folder. Press "OK" and "OK" and "OK".
+We now want to add the Scripts folder in the Python folder to Windows Path variable. The point of this is to be able to run a program called pip (this is Pythons standard package manager) from the command line regardless of where you are in the file system. Open the Control Panel > System and Security > System. Click "Advanced system settings". Click the "Environment Variables" button in the Advanced tab. In the System Variables bit, select the "Path" line and click the "Edit..." button. Click "New" and paste in the full path to the Scripts folder. Press "OK" and "OK" and "OK".
+
+INSTALLING RUST
+Download rustup-init.exe (64-bit) from:  
+https://www.rust-lang.org/tools/install  
   
-INSTALLING PREREQUISITE THIRD PARTY PACKAGES
+Run it and pick 1 for default location or choose one yourself.  
+  
+The page above also links to a download "Visual Studio C++ Build tools" and sais that the installer will prompt you that you need to install those too. It didn't for me though, I guess maybe I already had it? 
+  
+Next we want to add the cargo bin folder to the windows path variable, so we can use the Rust tools from anywhere. You can find the path to your cargo folder by opening a terminal (maybe cmd) and running:
+where rustc
+  
+Open the Control Panel > System and Security > System. Click "Advanced system settings". Click the "Environment Variables" button in the Advanced tab. In the System Variables bit, select the "Path" line and click the "Edit..." button. Click "New" and type in the full path to bin in the cargo folder. Press "OK" and "OK" and "OK".  
+  
+Next open a cmd terminal and run the command:  
+rustup update
+  
+INSTALLING THIRD PARTY PYTHON PREREQUISITES
 Time to install the prerequisite python packages using pip. Open the cmd terminal. Run the following commands one by one:  
 pip install numpy
 pip install scikit-image
