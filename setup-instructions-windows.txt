@@ -59,7 +59,7 @@ Find the folder where you installed Python. If you don't know where it is, press
 We now want to add the Scripts folder in the Python folder to Windows Path variable. The point of this is to be able to run a program called pip (this is Pythons standard package manager) from the command line regardless of where you are in the file system. Open the Control Panel > System and Security > System. Click "Advanced system settings". Click the "Environment Variables" button in the Advanced tab. In the System Variables bit, select the "Path" line and click the "Edit..." button. Click "New" and paste in the full path to the Scripts folder. Press "OK" and "OK" and "OK".
 
 INSTALLING RUST
-Download rustup-init.exe (64-bit) from:  
+Download rustup-init.exe (32-bit) from:  
 https://www.rust-lang.org/tools/install  
   
 Run it and pick 1 for default location or choose one yourself.  
@@ -73,6 +73,12 @@ Open the Control Panel > System and Security > System. Click "Advanced system se
   
 Next open a cmd terminal and run the command:  
 rustup update
+
+The default Python interpreter download is in the 32 bit architecture, so assuming we have that version of Python we need to make sure rust builds in the same format so they are compatible. To be able to do this we need to run:
+rustup target add i686-pc-windows-msvc 
+
+If for whatever reason you want to uninstall rust, you can run this command:
+rustup self uninstall
   
 INSTALLING THIRD PARTY PYTHON PREREQUISITES
 Time to install the prerequisite python packages using pip. Open the cmd terminal. Run the following commands one by one:  
