@@ -1,3 +1,6 @@
+cd engine
+call buildIfNeeded.bat
+cd..
 set botname=recapmachine
 rmdir /s /q userVersion
 mkdir userVersion
