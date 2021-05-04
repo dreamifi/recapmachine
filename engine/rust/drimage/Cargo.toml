@@ -1,13 +1,16 @@
 [package]
-name = "featherimage"
+name = "drimage"
 version = "0.1.0"
 authors = ["Dreamifi"]
 edition = '2018'
 
 [lib]
-name = "featherimage"
+name = "drimage"
 crate-type = ["cdylib"]
 
+[target.'cfg(windows)'.dependencies]
+winapi = { version = "0.3", features = ["winuser"] }
+
 [dependencies.pyo3]
-version = "0.12.3"
+version = "0.13.2"
 features = ["extension-module"]
